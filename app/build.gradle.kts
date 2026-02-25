@@ -4,6 +4,7 @@ plugins {
     alias(libs.plugins.kotlin.compose)
     alias(libs.plugins.ksp)
     alias(libs.plugins.hilt.android)
+    alias(libs.plugins.kotlin.serialization)
 }
 
 android {
@@ -68,6 +69,7 @@ dependencies {
     debugImplementation(libs.androidx.compose.ui.test.manifest)
 
     implementation(libs.bundles.compose)
+    implementation(libs.bundles.navigation)
     implementation(libs.bundles.retrofit)
     implementation(libs.moshi)
     implementation(libs.moshiAdapters)
@@ -77,9 +79,9 @@ dependencies {
     implementation(libs.bundles.coil)
     // Junit5
     testImplementation(platform(libs.junit5.bom))
-    testImplementation(libs.bundles.junit5Test)
+    implementation(libs.bundles.junit5Test)
     testRuntimeOnly(libs.bundles.junit5Runtime)
-    testImplementation(libs.kotlinx.coroutines.test)
+    implementation(libs.kotlinx.coroutines.test)
     testImplementation(libs.mockk)
 }
 
