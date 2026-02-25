@@ -23,7 +23,8 @@ class NetworkModule {
     fun provideRetrofit(
         okHttpClient: OkHttpClient,
         moshi: Moshi,
-    ): Retrofit = Retrofit.Builder()
+    ): Retrofit = Retrofit
+        .Builder()
         .client(okHttpClient)
         .baseUrl(ServiceCatalog.BASE_URL)
         .addConverterFactory(MoshiConverterFactory.create(moshi))
@@ -31,13 +32,15 @@ class NetworkModule {
 
     @Singleton
     @Provides
-    fun provideMoshi(): Moshi = Moshi.Builder().build()
+    fun provideMoshi(): Moshi = Moshi
+        .Builder()
+        .build()
 
     @Singleton
     @Provides
     fun provideHttpClient(httpLoggingInterceptor: HttpLoggingInterceptor): OkHttpClient =
         OkHttpClient.Builder()
-            //.addInterceptor(interceptor = httpLoggingInterceptor)
+            .addInterceptor(interceptor = httpLoggingInterceptor)
             .build()
 
     @Singleton
@@ -48,4 +51,8 @@ class NetworkModule {
         else
             HttpLoggingInterceptor.Level.NONE
     }
+
+    @Singleton
+    @Provides
+    fun provideApiService(retrofit: Retrofit): ApiService = retrofit.create(ApiService::class.java)
 }
