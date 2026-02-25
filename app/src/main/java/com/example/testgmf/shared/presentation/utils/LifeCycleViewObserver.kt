@@ -1,4 +1,4 @@
-package com.ksp.shared.utils.presentation
+package com.example.testgmf.shared.presentation.utils
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
