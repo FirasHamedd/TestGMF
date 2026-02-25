@@ -20,6 +20,8 @@ composeMaterial3 = "1.5.6"
 mockk = "1.14.5"
 kotlinx-coroutines = "1.9.0"
 junit5Bom = "5.13.4"
+nav3Core = "1.0.0"
+turbine = "1.2.1"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -60,6 +62,10 @@ androidx-compose-ui-tooling = { group = "androidx.compose.ui", name = "ui-toolin
 androidx-compose-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
 compose-material3 = { group = "androidx.wear.compose", name = "compose-material3", version.ref = "composeMaterial3" }
 
+#Navigation
+androidx-navigation3-runtime = { module = "androidx.navigation3:navigation3-runtime", version.ref = "nav3Core" }
+androidx-navigation3-ui = { module = "androidx.navigation3:navigation3-ui", version.ref = "nav3Core" }
+
 #Testing
 junit5-bom = { module = "org.junit:junit-bom", version.ref = "junit5Bom" }
 junit5-kotlin = { module = "org.jetbrains.kotlin:kotlin-test-junit5", version.ref = "kotlin" }
@@ -71,11 +77,13 @@ junit5-engine-vintage = { module = "org.junit.vintage:junit-vintage-engine" }
 junit5-platform-launcher = { module = "org.junit.platform:junit-platform-launcher" }
 mockk = { module = "io.mockk:mockk", version.ref = "mockk" }
 kotlinx-coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "kotlinx-coroutines" }
+turbine = { module = "app.cash.turbine:turbine", version.ref = "turbine"}
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
+kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
 hilt-android = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 
@@ -103,6 +111,11 @@ compose = [
     "androidx-compose-ui-graphics",
     "androidx-compose-ui-tooling",
     "androidx-compose-ui-tooling-preview",
+]
+
+navigation = [
+    "androidx-navigation3-runtime",
+    "androidx-navigation3-ui",
 ]
 
 junit5Test = [

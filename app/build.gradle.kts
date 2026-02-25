@@ -83,6 +83,7 @@ dependencies {
     testRuntimeOnly(libs.bundles.junit5Runtime)
     implementation(libs.kotlinx.coroutines.test)
     testImplementation(libs.mockk)
+    testImplementation(libs.turbine)
 }
 
 tasks.withType<Test> {
