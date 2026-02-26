@@ -16,6 +16,9 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.semantics.contentDescription
+import androidx.compose.ui.semantics.hideFromAccessibility
+import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -94,6 +97,10 @@ private fun SingleCountryScreen(
         onBackClicked = onBackClicked,
         modifier = modifier
     ) { paddingValues ->
+        val countryDetailsScreenAccessibilityText = stringResource(
+            id = R.string.accessibility_single_country_screen,
+            uiState.countryDetails.name,
+        )
         Column(
             verticalArrangement = Arrangement.spacedBy(space = Spacing.lg),
             horizontalAlignment = Alignment.CenterHorizontally,
@@ -101,7 +108,10 @@ private fun SingleCountryScreen(
                 .fillMaxSize()
                 .background(color = LightGrey)
                 .padding(paddingValues = paddingValues)
-                .padding(all = Spacing.md),
+                .padding(all = Spacing.md)
+                .semantics(mergeDescendants = true) {
+                    contentDescription = countryDetailsScreenAccessibilityText
+                },
         ) {
             AsyncImage(
                 model = uiState.countryDetails.flag,
@@ -121,7 +131,11 @@ private fun SingleCountryScreen(
                     fontWeight = FontWeight(weight = 500),
                     textAlign = TextAlign.Start,
                 ),
-                modifier = Modifier.fillMaxWidth(),
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .semantics {
+                        hideFromAccessibility()
+                    },
             )
 
             Text(

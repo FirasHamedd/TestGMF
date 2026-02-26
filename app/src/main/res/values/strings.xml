@@ -15,4 +15,9 @@
     <string name="common_general_dialog_dismiss_button">Dismiss</string>
     <string name="common_general_dialog_retry_button">Retry</string>
     <string name="common_general_dialog_message">An unexpected error has occurred.</string>
+
+    <!-- Accessibility -->
+    <string name="accessibility_single_country_screen">%s details information</string>
+    <string name="accessibility_back_button">Back button</string>
+
 </resources>
