@@ -14,5 +14,4 @@ class AllCountriesUIMapper @Inject constructor() {
             countryName = countryDomainModel.countryName,
         )
     }
-
 }

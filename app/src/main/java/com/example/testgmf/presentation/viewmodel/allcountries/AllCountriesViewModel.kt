@@ -1,4 +1,4 @@
-package com.example.testgmf.presentation.viewmodel
+package com.example.testgmf.presentation.viewmodel.allcountries
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope

@@ -19,7 +19,9 @@ internal class GetAllCountriesUseCaseTest {
 
     @BeforeEach
     fun setUp() {
-        getAllCountriesUseCase = GetAllCountriesUseCase(allCountriesRepository)
+        getAllCountriesUseCase = GetAllCountriesUseCase(
+            allCountriesRepository = allCountriesRepository,
+        )
     }
 
     @Test

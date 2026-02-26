@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">TestGMF</string>
+
+    <!-- Country Details Screen -->
+    <string name="country_name">Country: %s</string>
+    <string name="country_capital">Capital: %s</string>
+    <string name="country_population">Population: %s</string>
+    <string name="country_continent">Continent: %s</string>
+    <string name="country_independent">Is it independent ? : Yes</string>
+    <string name="country_not_independent">Is it independent ? : No</string>
+    <string name="country_landlocked">Is it landlocked ? : Yes</string>
+    <string name="country_not_landlocked">Is it landlocked ? : No</string>
 </resources>

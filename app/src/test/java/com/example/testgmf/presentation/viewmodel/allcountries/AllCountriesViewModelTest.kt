@@ -1,4 +1,4 @@
-package com.example.testgmf.presentation.viewmodel
+package com.example.testgmf.presentation.viewmodel.allcountries
 
 import app.cash.turbine.test
 import com.example.testgmf.domain.model.CountryDomainModel
@@ -40,7 +40,7 @@ internal class AllCountriesViewModelTest : MainDispatcherTest {
     }
 
     @Test
-    fun `Given action is OnAllCountriesScreenDisplayed and usecase returns success - When onAction is called - Then should update state`() =
+    fun `Given action is OnAllCountriesScreenDisplayed and useCase returns success - When onAction is called - Then should update state`() =
         runTest {
             // Given
             val givenCountries = listOf(mockk<CountryDomainModel>())
@@ -80,7 +80,7 @@ internal class AllCountriesViewModelTest : MainDispatcherTest {
         }
 
     @Test
-    fun `Given action is OnAllCountriesScreenDisplayed and usecase returns failure - When onAction is called - Then should update state`() =
+    fun `Given action is OnAllCountriesScreenDisplayed and useCase returns failure - When onAction is called - Then should update state`() =
         runTest {
             // Given
             coEvery {

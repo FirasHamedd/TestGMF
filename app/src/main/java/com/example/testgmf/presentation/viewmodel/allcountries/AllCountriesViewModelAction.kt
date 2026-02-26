@@ -1,4 +1,4 @@
-package com.example.testgmf.presentation.viewmodel
+package com.example.testgmf.presentation.viewmodel.allcountries
 
 sealed interface AllCountriesViewModelAction {
     data object OnAllCountriesScreenDisplayed : AllCountriesViewModelAction

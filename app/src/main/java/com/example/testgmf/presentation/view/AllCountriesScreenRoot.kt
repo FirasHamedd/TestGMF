@@ -29,8 +29,8 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import coil3.compose.AsyncImage
 import com.example.testgmf.presentation.state.AllCountriesUIState
 import com.example.testgmf.presentation.state.CountryUIState
-import com.example.testgmf.presentation.viewmodel.AllCountriesViewModel
-import com.example.testgmf.presentation.viewmodel.AllCountriesViewModelAction
+import com.example.testgmf.presentation.viewmodel.allcountries.AllCountriesViewModel
+import com.example.testgmf.presentation.viewmodel.allcountries.AllCountriesViewModelAction
 import com.example.testgmf.shared.presentation.view.Loader
 import com.example.testgmf.shared.presentation.view.ScreenContent
 import com.example.testgmf.presentation.ui.theme.Black
@@ -38,7 +38,7 @@ import com.example.testgmf.presentation.ui.theme.CardBackground
 import com.example.testgmf.presentation.ui.theme.Grey
 import com.example.testgmf.presentation.ui.theme.Rounding
 import com.example.testgmf.presentation.ui.theme.Spacing
-import com.example.testgmf.presentation.viewmodel.AllCountriesViewModelEvents
+import com.example.testgmf.presentation.viewmodel.allcountries.AllCountriesViewModelEvents
 import com.example.testgmf.shared.presentation.utils.LifeCycleViewObserver
 import com.example.testgmf.shared.presentation.utils.ObserveAsEvents
 
@@ -80,7 +80,7 @@ fun AllCountriesScreenRoot(
 }
 
 @Composable
-fun AllCountriesScreen(
+private fun AllCountriesScreen(
     state: AllCountriesUIState,
     onCountryClicked: (String) -> Unit,
     modifier: Modifier = Modifier,

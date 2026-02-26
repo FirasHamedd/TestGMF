@@ -12,7 +12,7 @@ class AllCountriesDomainModelMapperTest {
     private val allCountriesDomainModelMapper = AllCountriesDomainModelMapper()
 
     @Test
-    fun `Given countries data list - When mapToDomainModel is called - Then should mapped countries domain list`() {
+    fun `Given countries data list - When mapToDomainModel is called - Then should return mapped countries domain list`() {
         // Given
         val givenCountriesList = listOf(
             CountryDataModel(
