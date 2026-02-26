@@ -10,6 +10,8 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
@@ -32,6 +34,7 @@ import com.example.testgmf.presentation.viewmodel.details.SingleCountryDetailsVi
 import com.example.testgmf.presentation.viewmodel.details.SingleCountryDetailsViewModelEvents
 import com.example.testgmf.shared.presentation.utils.LifeCycleViewObserver
 import com.example.testgmf.shared.presentation.utils.ObserveAsEvents
+import com.example.testgmf.shared.presentation.view.CommonGeneralError
 import com.example.testgmf.shared.presentation.view.Loader
 import com.example.testgmf.shared.presentation.view.ScreenContent
 
@@ -43,10 +46,12 @@ fun SingleCountryScreenRoot(
 ) {
     val uiState by singleCountryDetailsViewModel.uiState.collectAsStateWithLifecycle()
 
+    val isGeneralCommonErrorDialogVisible = remember { mutableStateOf(value = false) }
+
     ObserveAsEvents(flow = singleCountryDetailsViewModel.events) { events ->
         when (events) {
             is SingleCountryDetailsViewModelEvents.ShowErrorDialog -> {
-                // TODO: Show error dialog or error snack bar
+                isGeneralCommonErrorDialogVisible.value = true
             }
         }
     }
@@ -64,6 +69,17 @@ fun SingleCountryScreenRoot(
     SingleCountryScreen(
         uiState = uiState,
         onBackClicked = onBackClicked,
+    )
+
+    CommonGeneralError(
+        shouldShowDialogState = isGeneralCommonErrorDialogVisible,
+        onRetryButtonClicked = {
+            singleCountryDetailsViewModel.onAction(
+                action = SingleCountryDetailsViewModelAction.OnErrorDialogRetryButtonClicked(
+                    countryName = countryName,
+                ),
+            )
+        }
     )
 }
 

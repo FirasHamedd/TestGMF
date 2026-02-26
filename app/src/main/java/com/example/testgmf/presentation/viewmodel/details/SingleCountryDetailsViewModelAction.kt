@@ -4,4 +4,8 @@ sealed interface SingleCountryDetailsViewModelAction {
     data class OnCountryDetailsScreenDisplayed(
         val countryName: String
     ) : SingleCountryDetailsViewModelAction
+
+    data class OnErrorDialogRetryButtonClicked(
+        val countryName: String,
+    ) : SingleCountryDetailsViewModelAction
 }

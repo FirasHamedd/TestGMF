@@ -10,4 +10,9 @@
     <string name="country_not_independent">Is it independent ? : No</string>
     <string name="country_landlocked">Is it landlocked ? : Yes</string>
     <string name="country_not_landlocked">Is it landlocked ? : No</string>
+
+    <!-- Common General Error Dialog -->
+    <string name="common_general_dialog_dismiss_button">Dismiss</string>
+    <string name="common_general_dialog_retry_button">Retry</string>
+    <string name="common_general_dialog_message">An unexpected error has occurred.</string>
 </resources>

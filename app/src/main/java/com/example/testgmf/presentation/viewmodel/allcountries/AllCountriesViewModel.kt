@@ -33,6 +33,7 @@ class AllCountriesViewModel @Inject constructor(
         when (action) {
             is AllCountriesViewModelAction.OnAllCountriesScreenDisplayed -> getAllCountries()
             is AllCountriesViewModelAction.OnCountryClicked -> onCountryClicked(countryName = action.countryName)
+            is AllCountriesViewModelAction.OnErrorDialogRetryButtonClicked -> getAllCountries()
         }
     }
 

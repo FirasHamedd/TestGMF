@@ -14,6 +14,8 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -41,6 +43,7 @@ import com.example.testgmf.presentation.ui.theme.Spacing
 import com.example.testgmf.presentation.viewmodel.allcountries.AllCountriesViewModelEvents
 import com.example.testgmf.shared.presentation.utils.LifeCycleViewObserver
 import com.example.testgmf.shared.presentation.utils.ObserveAsEvents
+import com.example.testgmf.shared.presentation.view.CommonGeneralError
 
 @Composable
 fun AllCountriesScreenRoot(
@@ -49,10 +52,12 @@ fun AllCountriesScreenRoot(
 ) {
     val uiState by allCountriesViewModel.uiState.collectAsStateWithLifecycle()
 
+    val isGeneralCommonErrorDialogVisible = remember { mutableStateOf(value = false) }
+
     ObserveAsEvents(flow = allCountriesViewModel.events) { events ->
         when (events) {
             is AllCountriesViewModelEvents.ShowErrorDialog -> {
-                // TODO: Show error dialog 
+                isGeneralCommonErrorDialogVisible.value = true
             }
             is AllCountriesViewModelEvents.NavigateToCountryDetails -> {
                 onNavigateToDetails(events.countryName)
@@ -77,6 +82,14 @@ fun AllCountriesScreenRoot(
         },
     )
 
+    CommonGeneralError(
+        shouldShowDialogState = isGeneralCommonErrorDialogVisible,
+        onRetryButtonClicked = {
+            allCountriesViewModel.onAction(
+                action = AllCountriesViewModelAction.OnErrorDialogRetryButtonClicked,
+            )
+        }
+    )
 }
 
 @Composable

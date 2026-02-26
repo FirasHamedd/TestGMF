@@ -34,6 +34,10 @@ class SingleCountryDetailsViewModel @Inject constructor(
             is SingleCountryDetailsViewModelAction.OnCountryDetailsScreenDisplayed -> getSingleCountryDetails(
                 countryName = action.countryName,
             )
+
+            is SingleCountryDetailsViewModelAction.OnErrorDialogRetryButtonClicked -> getSingleCountryDetails(
+                countryName = action.countryName,
+            )
         }
     }
 
